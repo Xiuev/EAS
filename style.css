@@ -3,7 +3,13 @@ body {
 }
 
 .grid-square {
-  border: 2px solid black;
+  border: 2px solid #fff;
   height: 20px;
   width: 20px;
+}
+
+.container {
+  display: flex;
+  max-width: 23rem;
+  flex-wrap: wrap;
 }
