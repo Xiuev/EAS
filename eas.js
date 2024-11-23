@@ -1,9 +1,11 @@
 console.log("hi");
 let containerDiv = document.querySelector(".container");
 let numBtn = document.querySelector("#pop-up");
-numBtn.addEventListener("click", function () {
-  prompt("How many squares for new grid?");
-});
+let testButton = document.querySelector("#test-btn");
+//get promt response from user and convert to int
+
+testButton.addEventListener("click", removeGrid);
+numBtn.addEventListener("click", newUserGrid);
 // 16 x16 grid
 for (let i = 0; i < 256; i++) {
   let gridSquareDiv = document.createElement("div");
@@ -20,3 +22,16 @@ for (let i = 0; i < gridSquares.length; i++) {
 }
 
 //functions
+//
+function newUserGrid() {
+  //once user enters number, remove existing grid.
+  let userResponse = parseInt(prompt("How many squares for new grid?"));
+  if (Number.isInteger(userResponse) === false) {
+    alert("Please enter a valid number!");
+  }
+}
+function removeGrid() {
+  for (let i = 0; i < gridSquares.length; i++) {
+    gridSquares[i].remove();
+  }
+}
