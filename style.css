@@ -13,3 +13,9 @@ body {
   max-width: 23rem;
   flex-wrap: wrap;
 }
+
+.userSquareDiv {
+  border: 2px solid #fff;
+  height: 20px;
+  width: 20px;
+}
