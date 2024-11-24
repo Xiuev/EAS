@@ -10,7 +10,7 @@ body {
 
 .container {
   display: flex;
-  max-width: 23rem;
+  width: 23rem;
   flex-wrap: wrap;
 }
 

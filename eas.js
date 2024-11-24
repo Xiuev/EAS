@@ -29,25 +29,24 @@ function newUserGrid() {
   if (Number.isInteger(userResponse) === false) {
     alert("Please enter a valid number!");
   } else {
-    removeGrid();
+    removeAllGrid();
+    let gridWidth = Math.floor(containerDiv.offsetWidth / userResponse);
     let userResponseGridValue = userResponse * userResponse;
     for (let i = 0; i < userResponseGridValue; i++) {
-      //style userSquareDiv in css to make it appear.
+      //style userSquareDiv in css to make it appear. ex: element.style.backgroundColor = "red"
+
       let userSquareDiv = document.createElement("div");
       userSquareDiv.className = "userSquareDiv";
       containerDiv.appendChild(userSquareDiv);
     }
     console.log(userResponseGridValue);
+    console.log(gridWidth);
   }
 }
 function removeGrid() {
   for (let i = 0; i < gridSquares.length; i++) {
     gridSquares[i].remove();
   }
-}
-
-function removeUserGrid() {
-  let userGridsRemove = document.querySelectorAll(".userSquareDiv");
 }
 
 function removeAllGrid() {
@@ -58,3 +57,6 @@ function removeAllGrid() {
   }
   console.log(gridDivChild);
 }
+//Size of each grid square formula
+//total width of container / number of colunms (x)
+console.log(`Container div width is :${containerDiv.offsetWidth}`); //368px
