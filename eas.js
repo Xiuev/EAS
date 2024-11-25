@@ -14,6 +14,7 @@ for (let i = 0; i < 256; i++) {
 }
 //turn into array to iterate thru and attach event listner for trail
 let gridSquares = Array.from(document.querySelectorAll(".grid-square"));
+
 // convert gridSquare nodelist --> array --> loop thru array elements and attach event listner to each item
 for (let i = 0; i < gridSquares.length; i++) {
   gridSquares[i].addEventListener("mouseover", function (e) {
@@ -34,18 +35,26 @@ function newUserGrid() {
     let userResponseGridValue = userResponse * userResponse;
     for (let i = 0; i < userResponseGridValue; i++) {
       //style userSquareDiv in css to make it appear. ex: element.style.backgroundColor = "red"
-
       let userSquareDiv = document.createElement("div");
       userSquareDiv.className = "userSquareDiv";
+      userSquareDiv.style.width = `${gridWidth}px`;
+      userSquareDiv.style.height = `${gridWidth}px`;
       containerDiv.appendChild(userSquareDiv);
+
+      /////
+      let userGridSquareArray = Array.from(
+        document.querySelectorAll(".userSquareDiv")
+      );
+
+      for (let i = 0; i < userGridSquareArray.length; i++) {
+        userGridSquareArray[i].addEventListener("mouseover", function (e) {
+          e.target.style.backgroundColor = "pink";
+        });
+      }
     }
+
     console.log(userResponseGridValue);
     console.log(gridWidth);
-  }
-}
-function removeGrid() {
-  for (let i = 0; i < gridSquares.length; i++) {
-    gridSquares[i].remove();
   }
 }
 
@@ -57,6 +66,3 @@ function removeAllGrid() {
   }
   console.log(gridDivChild);
 }
-//Size of each grid square formula
-//total width of container / number of colunms (x)
-console.log(`Container div width is :${containerDiv.offsetWidth}`); //368px
